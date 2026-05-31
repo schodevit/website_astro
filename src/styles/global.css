@@ -120,7 +120,7 @@
   body {
     @apply font-body antialiased text-maintext;
     background: linear-gradient(
-      135deg,    
+      135deg,
       color-mix(in srgb, var(--color-background), black 16%) 0%,
       var(--color-background) 50%,
       color-mix(in srgb, var(--color-background), white 16%) 100%
@@ -141,7 +141,7 @@
     @apply absolute font-heading font-extralight select-none pointer-events-none leading-none;
     animation: fall linear forwards;
   }
-  
+
   .launching {
     animation: launch 0.5s ease-in forwards;
   }
@@ -151,13 +151,16 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: var(--color-background);
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 100px;
   background-color: color-mix(in srgb, var(--color-accent), transparent 50%);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: color-mix(in srgb, var(--color-accent), transparent 25%);
 }

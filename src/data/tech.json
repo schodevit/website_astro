@@ -1,35 +1,43 @@
 {
   "categories": [
     {
-      "title": "Mobile Development",
+      "title": "Backend",
       "skills": [
-        { "name": "Flutter", "level": 3, "icon": "skill-icons:flutter-dark" },
-        { "name": "Dart", "level": 3, "icon": "skill-icons:dart-dark" },
-        { "name": "Kotlin", "level": 1, "icon": "skill-icons:kotlin-dark" }
+        { "name": "Ruby on Rails", "level": 3, "icon": "skill-icons:rails" },
+        { "name": "Ruby", "level": 3, "icon": "skill-icons:ruby" },
+        { "name": "Django", "level": 2, "icon": "skill-icons:django" },
+        { "name": "Python", "level": 2, "icon": "skill-icons:python-light" },
+        { "name": "Go", "level": 1, "icon": "skill-icons:golang" },
+        { "name": "Rust", "level": 1, "icon": "skill-icons:rust" }
       ]
     },
     {
       "title": "Frontend",
       "skills": [
-        { "name": "Astro", "level": 2, "icon": "skill-icons:astro" },
-        { "name": "HTML", "level": 2, "icon": "skill-icons:html" },
-        { "name": "CSS", "level": 2, "icon": "skill-icons:css" },
-        { "name": "Tailwind CSS", "level": 1, "icon": "skill-icons:tailwindcss-dark" }
-      ]
-    },
-    {
-      "title": "Backend",
-      "skills": [
-        { "name": "FastAPI", "level": 2, "icon": "skill-icons:fastapi" },
-        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
-        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
+        { "name": "Vue.js", "level": 3, "icon": "skill-icons:vuejs-light" },
+        { "name": "React", "level": 3, "icon": "skill-icons:react-light" },
+        { "name": "Nuxt", "level": 2, "icon": "skill-icons:nuxtjs-light" },
+        { "name": "Tailwind CSS", "level": 2, "icon": "skill-icons:tailwindcss-light" },
+        { "name": "Three.js", "level": 1, "icon": "skill-icons:threejs-light" }
       ]
     },
     {
       "title": "Database",
       "skills": [
-        { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "PostgreSQL", "level": 2, "icon": "skill-icons:postgresql-dark" }
+        { "name": "PostgreSQL", "level": 3, "icon": "skill-icons:postgresql-light" },
+        { "name": "Redis", "level": 2, "icon": "skill-icons:redis-light" },
+        { "name": "Supabase", "level": 1, "icon": "skill-icons:supabase-light" },
+        { "name": "Mongo", "level": 1, "icon": "skill-icons:mongodb" }
+      ]
+    },
+    {
+      "title": "DevOps",
+      "skills": [
+        { "name": "Docker", "level": 2, "icon": "skill-icons:docker" },
+        { "name": "RabbitMQ", "level": 2, "icon": "skill-icons:rabbitmq-light" },
+        { "name": "Kubernetes", "level": 1, "icon": "skill-icons:kubernetes" },
+        { "name": "Terrform", "level": 1, "icon": "skill-icons:terraform-light" },
+        { "name": "AWS", "level": 1, "icon": "skill-icons:aws-light" }
       ]
     }
   ]

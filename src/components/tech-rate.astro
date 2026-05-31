@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import type { Rate } from '../types'
+
+interface Props {
+  index: number
+  rate: Rate
+}
+
+const { index, rate } = Astro.props
+
+const starClasses = (highlight: boolean) => [
+  'size-3 transition-colors duration-500',
+  { 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]': highlight },
+  { 'text-gray-600': !highlight }
+]
+
+---
+
+<div class={`flex items-center gap-2 ${index > 0 ? 'md:border-l md:border-white/10 md:pl-4' : ''}`}>
+  <div class="flex gap-0.5">
+    {[1, 2, 3].map(star => (
+      <Icon
+        name="mdi:star"
+        class:list={starClasses(star <= rate.level)}
+      />
+    ))}
+  </div>
+  <span class="text-[10px] uppercase tracking-wider text-subtext">{rate.label}</span>
+</div>
