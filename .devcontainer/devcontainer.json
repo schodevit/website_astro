@@ -1,0 +1,22 @@
+{
+  "name": "schodevit",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "website",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [4321],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "sleistner.vscode-fileutils",
+        "github.copilot-chat"
+      ]
+    }
+  },
+
+  "postCreateCommand": "npm install"
+}
