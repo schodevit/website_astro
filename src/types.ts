@@ -1,3 +1,11 @@
+export interface Career {
+  period: string
+  role: string
+  company: string
+  description: string
+  skills: string[]
+}
+
 export interface Category {
   title: string
   skills: Skill[]
@@ -12,6 +20,12 @@ export interface Skill {
   name: string
   level: number
   icon: string
+}
+
+export interface Social {
+  icon: string
+  name: string
+  url: string
 }
 
 export interface NavItem {

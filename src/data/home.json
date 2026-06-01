@@ -21,6 +21,12 @@
       "showInContact": true
     },
     {
+      "name": "Email",
+      "url": "mailto:schodevio@gmail.com",
+      "icon": "mdi:email",
+      "showInContact": true
+    },
+    {
       "name": "Leetcode",
       "url": "#",
       "icon": "devicon-plain:leetcode",
@@ -33,16 +39,10 @@
       "showInContact": false
     },
     {
-      "name": "Email",
-      "url": "mailto:schodevio@gmail.com",
-      "icon": "mdi:email",
-      "showInContact": true
-    },
-    {
       "name": "Whatsapp",
       "url": "#",
       "icon": "mdi:whatsapp",
-      "showInContact": true
+      "showInContact": false
     },
     {
       "name": "Facebook",
@@ -54,7 +54,7 @@
       "name": "Messenger",
       "url": "#",
       "icon": "mdi:facebook-messenger",
-      "showInContact": true
+      "showInContact": false
     },
     {
       "name": "Instagram",

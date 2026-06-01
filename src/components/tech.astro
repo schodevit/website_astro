@@ -1,37 +1,23 @@
 ---
 import TechCategory from './tech-category.astro'
 import TechRate from './tech-rate.astro'
-import localTechData from '../data/tech.json'
+import data from '../data/tech.json'
 
 import type { Category, Rate } from '../types'
 
 let categories: Category[]
-categories = localTechData.categories as Category[]
+categories = data.categories as Category[]
 
 const rates: Rate[] = [
   { label: "Expert", level: 3 },
   { label: "Proficient", level: 2 },
   { label: "Beginner", level: 1 }
 ]
-
-// const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
-
-// try {
-//   if (BASE_URL) {
-//     const response = await fetch(`${BASE_URL}/tech`);
-//     const data = await response.json();
-//     categories = data.categories;
-//   } else {
-//     categories = localTechData.categories;
-//   }
-// } catch {
-//   categories = localTechData.categories;
-// }
 ---
 
-<section id="tech" class="section-container overflow-hidden">
+<section id="tech" class="slideGroup section-container overflow-hidden">
   <div class="container mx-auto">
-    <div class="tech-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <div class="slideUp flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
       <div>
         <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
           <span class="text-accent">/</span> Tech Stack
@@ -52,62 +38,3 @@ const rates: Rate[] = [
     </div>
   </div>
 </section>
-
-<style>
-  .tech-header {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .tech-header.reveal {
-    opacity: 1 !important;
-    transform: translateY(0) scale(1);
-  }
-</style>
-
-<script>
-  function revealSkills() {
-    const header = document.querySelector('.tech-header');
-    const cards = document.querySelectorAll('.skill-card');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-
-          // Check if the intersecting element is the header
-          if (target.classList.contains('tech-header')) {
-            target.classList.add('reveal');
-            observer.unobserve(target);
-          }
-          // Check if the intersecting element is a skill card
-          else if (target.classList.contains('skill-card')) {
-            // Add a slight delay based on the card's position to create a wave effect
-            const index = Array.from(cards).indexOf(target);
-            setTimeout(() => {
-              target.classList.add('reveal');
-            }, (index % 6) * 50); // Delay resets every row for a clean staggered look
-
-            observer.unobserve(target);
-          }
-        }
-      });
-    }, {
-      threshold: 0.1, // Trigger when 10% of the card is visible
-      rootMargin: '0px 0px -50px 0px' // Trigger slightly before it hits the viewport
-    });
-
-    // Observe the header
-    if (header) observer.observe(header);
-
-    // Observe all cards
-    cards.forEach(card => observer.observe(card));
-  }
-
-  // Runs on initial load
-  revealSkills();
-
-  // Necessary for Astro View Transitions if you use them
-  document.addEventListener('astro:after-swap', revealSkills);
-</script>

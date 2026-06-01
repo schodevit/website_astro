@@ -34,7 +34,7 @@
       "title": "DevOps",
       "skills": [
         { "name": "Docker", "level": 2, "icon": "skill-icons:docker" },
-        { "name": "RabbitMQ", "level": 2, "icon": "skill-icons:rabbitmq-light" },
+        { "name": "RabbitMQ", "level": 1, "icon": "skill-icons:rabbitmq-light" },
         { "name": "Kubernetes", "level": 1, "icon": "skill-icons:kubernetes" },
         { "name": "Terrform", "level": 1, "icon": "skill-icons:terraform-light" },
         { "name": "AWS", "level": 1, "icon": "skill-icons:aws-light" }

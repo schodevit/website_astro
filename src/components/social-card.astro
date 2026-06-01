@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import type { Social } from '../types'
+
+interface Props {
+  social: Social
+}
+
+const { social } = Astro.props
+
+const simpleUrl =
+  String(social.url)
+    .replace('https://', '')
+    .replace('mailto:', '')
+    .replace('wa.me/', '+')
+---
+
+<a
+  href={social.url}
+  target="_blank"
+  class="slideUp group p-8 bg-accent/5 border border-accent/10 rounded-2xl hover:border-accent/40 hover:bg-accent/10"
+>
+  <Icon
+    name={social.icon}
+    class="w-10 h-10 text-accent mb-4 mx-auto group-hover:scale-110 transition-transform"
+  />
+
+  <h3 class="text-maintext font-bold mb-1">{social.name}</h3>
+  <p class="text-subtext text-xs truncate px-2">{simpleUrl}</p>
+</a>

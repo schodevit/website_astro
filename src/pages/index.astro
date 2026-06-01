@@ -1,44 +1,52 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Nav from "../components/nav.astro";
-import Home from "../components/home.astro";
-import Tech from "../components/tech.astro";
-import Projects from "../components/projects.astro";
-import Contact from "../components/contact.astro";
-import Career from "../components/career.astro";
-import localData from '../data/home.json';
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/nav.astro'
+import Home from '../components/home.astro'
+import Tech from '../components/tech.astro'
+import Projects from '../components/projects.astro'
+import Contact from '../components/contact.astro'
+import Career from '../components/career.astro'
+import Footer from '../components/footer.astro'
 
-interface ProfileData {
-  siteTitle: string;
-}
-
-// const isApiLive = import.meta.env.PROD; // Auto true in production
-// const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
-
-let data: ProfileData; // data as ProfileData
-data = localData as ProfileData;
-
-// if (isApiLive && BASE_URL) {
-//   try {
-//     const response = await fetch(`${BASE_URL}/home`);
-//     if (!response.ok) throw new Error('Network response was not ok');
-//     data = await response.json();
-//   } catch (error) {
-//     console.error("API Fetch failed, falling back to mock data", error);
-//     data = localData as ProfileData;
-//   }
-// } else {
-//   data = localData as ProfileData;
-// }
-
-const { siteTitle } = data;
+import props from '../data/home.json'
 ---
 
-<Layout title={siteTitle}>
+<Layout title={props.siteTitle}>
   <Nav />
 	<Home />
 	<Career />
 	<!-- <Projects /> -->
 	<Tech />
 	<Contact />
+  <Footer />
 </Layout>
+
+<script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+document.querySelectorAll(".slideGroup").forEach((group) => {
+  const items = group.querySelectorAll(".slideUp")
+
+  gsap.from(items, {
+    opacity: 0,
+    y: 40,
+    duration: 1,
+    stagger: 0.1,
+    ease: "power2.out",
+
+    scrollTrigger: {
+      trigger: group,
+      start: "top 80%",
+      toggleActions: "play none none none",
+      once: true,
+    }
+  })
+})
+
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh()
+})
+</script>

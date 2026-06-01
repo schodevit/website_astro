@@ -14,10 +14,9 @@ const starClasses = (highlight: boolean) => [
   { 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]': highlight },
   { 'text-gray-600': !highlight }
 ]
-
 ---
 
-<div class="skill-card opacity-0 group relative flex items-stretch min-h-14 rounded-xl bg-accent/5 border border-accent/15 hover:border-accent/40 hover:bg-accent/10 transition-all duration-300">
+<div class="slideUp group relative flex items-stretch min-h-14 rounded-xl bg-accent/5 border border-accent/15 hover:border-accent/40 hover:bg-accent/10">
   <div class="shrink-0 w-12 flex items-center justify-center rounded-l-xl bg-accent/15 transition-colors group-hover:bg-accent/20">
     <Icon name={skill.icon} class="w-7 h-7 group-hover:scale-110 transition-transform" />
   </div>
