@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<button
+  id="back-to-top"
+  class="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-background border border-accent/10 shadow-2xl translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
+  aria-label="Back to top"
+>
+  <svg class="size-14 -rotate-90">
+    <circle
+      cx="28" cy="28" r="24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3"
+      class="text-accent/5"
+    />
+
+    <circle
+      id="progress-circle"
+      cx="28" cy="28" r="24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-dasharray="150.7"
+      stroke-dashoffset="150.7"
+      stroke-linecap="round"
+      class="text-accent"
+    />
+  </svg>
+
+  <div class="absolute text-accent">
+    <Icon name="mdi:arrow-up" class="size-5 font-semibold" />
+  </div>
+</button>
+
+<script type="module" src="/src/utils/scroll.ts"></script>

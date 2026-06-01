@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import type { NavItem } from '../types'
+
+const { item } = Astro.props
+---
+
+<li class="flex-1 md:flex-none">
+  <a
+    href={item.href}
+    class="flex flex-col items-center gap-1 text-accent transition-colors text-xs md:text-base relative group"
+  >
+    <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
+
+    <span class="md:hidden flex items-center justify-center w-6 h-6">
+      <Icon
+        name={item.icon}
+        class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300"
+      />
+    </span>
+
+    <span class="hidden md:inline-block">{item.label}</span>
+    <span class="md:hidden text-xs">{item.label}</span>
+  </a>
+</li>

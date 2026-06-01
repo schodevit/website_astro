@@ -1,11 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
-import ThemeToggle from './theme-toggle.astro';
-interface NavItem {
-  label: string;
-  href: string;
-  icon: string;
-}
+import NavItemComponent from './nav-item.astro'
+import ThemeToggle from './theme-toggle.astro'
+
+import type { NavItem } from '../types'
 
 const navItems: NavItem[] = [
   {
@@ -18,11 +15,11 @@ const navItems: NavItem[] = [
     href: "#career",
     icon: `mdi:work`,
   },
-  {
-    label: "Projects",
-    href: "#projects",
-    icon: `mdi:computer`,
-  },
+  // {
+  //   label: "Projects",
+  //   href: "#projects",
+  //   icon: `mdi:computer`,
+  // },
   {
     label: "Tech",
     href: "#tech",
@@ -40,7 +37,10 @@ const navItems: NavItem[] = [
   }
 ];
 ---
-<div id="theme-toggle-wrapper" class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content" style="animation-delay: 700ms;">
+<div
+  id="theme-toggle-wrapper"
+  class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content" style="animation-delay: 700ms;"
+>
   <ThemeToggle />
 </div>
 
@@ -50,29 +50,8 @@ const navItems: NavItem[] = [
     class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
   >
     <div class="container mx-auto flex justify-center items-center p-3 reveal-content" style="animation-delay: 700ms;">
-      <ul
-        class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1"
-      >
-        {
-          navItems.map((item) => (
-            <li class="flex-1 md:flex-none">
-              <a
-                href={item.href}
-                class="flex flex-col items-center gap-1 text-accent transition-colors text-xs md:text-base relative group"
-              >
-                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
-                <span class="md:hidden flex items-center justify-center w-6 h-6">
-                  <Icon 
-                    name={item.icon} 
-                    class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300" 
-                  />
-                </span>
-                <span class="hidden md:inline-block">{item.label}</span>
-                <span class="md:hidden text-xs">{item.label}</span>
-              </a>
-            </li>
-          ))
-        }
+      <ul class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1">
+        {navItems.map(item => <NavItemComponent item={item} />)}
       </ul>
     </div>
   </nav>
@@ -107,7 +86,7 @@ const navItems: NavItem[] = [
    nav.scrolling {
     background-color: color-mix(in srgb, var(--color-background), transparent 75%);
     border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-    
+
     border-radius: 9999px;
     backdrop-filter: blur(10px);
   }
@@ -176,7 +155,7 @@ const navItems: NavItem[] = [
       /* Force it into its own GPU layer permanently */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
-      
+
       /* Smooth transition */
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 
@@ -187,7 +166,7 @@ const navItems: NavItem[] = [
     #main-nav.nav-hidden {
       /* transform: translateY(110%) !important; */
       transform: translate3d(0, 110%, 0) !important;
-      
+
       /* Optional: Turn off blur when hidden to save GPU cycles */
       backdrop-filter: blur(0px);
     }
@@ -212,7 +191,7 @@ const navItems: NavItem[] = [
     transform: scale(0.95);
     text-shadow: 0 0 15px var(--color-accent-60);
   }
-  
+
   nav a:not(.active):hover .nav-icon {
     transform: scale(0.95);
     color: var(--color-maintext) !important;
@@ -322,4 +301,3 @@ const navItems: NavItem[] = [
     sections.forEach((section) => observer.observe(section));
   });
 </script>
-

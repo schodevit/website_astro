@@ -13,3 +13,9 @@ export interface Skill {
   level: number
   icon: string
 }
+
+export interface NavItem {
+  label: string
+  href: string
+  icon: string
+}

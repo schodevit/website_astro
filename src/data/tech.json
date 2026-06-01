@@ -5,8 +5,8 @@
       "skills": [
         { "name": "Ruby on Rails", "level": 3, "icon": "skill-icons:rails" },
         { "name": "Ruby", "level": 3, "icon": "skill-icons:ruby" },
-        { "name": "Django", "level": 2, "icon": "skill-icons:django" },
         { "name": "Python", "level": 2, "icon": "skill-icons:python-light" },
+        { "name": "Django", "level": 1, "icon": "skill-icons:django" },
         { "name": "Go", "level": 1, "icon": "skill-icons:golang" },
         { "name": "Rust", "level": 1, "icon": "skill-icons:rust" }
       ]
