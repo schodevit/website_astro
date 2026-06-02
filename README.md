@@ -1,16 +1,9 @@
 # CareerPortfolio: Data-Driven Astro SSG
-Live Demo: [careerportofio.netlify.app](https://careerportofio.netlify.app)
 
-[![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/🤝_Contributions-Welcome-blue)](CONTRIBUTING.md)
-
-A high-performance, responsive portfolio built with **Astro**, **Tailwind CSS**, and **Native Browser Animations**. Designed to be 100% data-driven and easy to customize as a reusable template.
+A high-performance, responsive portfolio built with **Astro**, **Tailwind CSS**, and **GSAP Animations**. Designed to be 100% data-driven and easy to customize as a reusable template.
 
 ## 🌟 Highlights
-- **Zero-JS by Default:** Leveraging Astro's islands architecture.
 - **JSON-First:** Update your information in `src/data/` without touching any code.
-- **Built-in Themes**: Switch between multiple professional color palettes and light/dark modes from a single config file.
 - **Fully Responsive:** Optimized for mobile, tablet, and desktop.
 - **Performance:** Optimized for perfect Lighthouse scores.
 
@@ -19,7 +12,6 @@ A high-performance, responsive portfolio built with **Astro**, **Tailwind CSS**,
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Icons:** [Iconify](https://iconify.design/) via `astro-icon`
 - **Deployment:** [Netlify](https://www.netlify.com)
-- **Backend:** [FastAPI](https://fastapi.tiangolo.com/) *(Works without backend — open source release coming soon)*
 
 ## 🚀 Getting Started
 Follow these instructions to get a local copy up and running.
@@ -40,17 +32,6 @@ Make sure you have **Astro v6** and **Node.js** (v22.12.0 or higher) installed o
 ## 🛠️ How to Customize
 To make this portfolio yours, simply edit the JSON files in `src/data/`.
 
-### 🎨 Switching Themes
-This template comes with multiple built-in color palettes. To change the theme of your portfolio, open `src/config.ts` and update the `baseTheme` variable to one of the available options:
-
-```typescript
-export const SITE_CONFIG = {
-  // Options: 'default', 'strategic', 'innovator', 'executive'
-  baseTheme: 'default', 
-};
-```
-*(The template will automatically handle the dark/light mode toggles for whichever base theme you choose!)*
-
 ### 📁 Directory Structure
 ```
 ├── public/              # Global static assets (placeholder.jpg, favicon)
@@ -61,7 +42,6 @@ export const SITE_CONFIG = {
 │   ├── layouts/         # Layout templates with Meta tags
 │   ├── pages/           # Site routes (index.astro)
 │   └── styles/          # global css styles
-│   └── config.ts        # Global site configuration
 ├── astro.config.mjs     # Astro configuration
 └── tsconfig.json        # Typescript configuration
 ```
@@ -79,7 +59,7 @@ export const SITE_CONFIG = {
 
 Tailwind CSS: `npx astro add tailwind`
 
-Inter font: `npm install @fontsource-variable/inter` 
+Inter font: `npm install @fontsource-variable/inter`
 
 Space Grotesk font: `npm install @fontsource-variable/space-grotesk`
 
@@ -94,7 +74,7 @@ https://www.astroicon.dev
 https://icon-sets.iconify.design/mdi/?category=Material
 
 ## 🤝 Contributing
-Contributions are welcome!  
+Contributions are welcome!
 Please read the [Contributing Guide](CONTRIBUTING.md) before opening a PR.
 
 ## 📝 License
