@@ -1,11 +1,19 @@
 ---
 import SocialCard from './social-card.astro'
-import props from '../data/home.json'
+import socialsData from '../data/socials.json'
+
+import type { Social } from '../types'
+
+interface SocialsData {
+  socials: Social[]
+}
+
+const { socials } = socialsData as SocialsData
 
 const URL_REGEX = /^(https?:\/\/|mailto:|tel:)/
 
-const visibleSocials = props.socials.filter(social => (
-  String(social.url).match(URL_REGEX) && social.url !== "#" && social.showInContact
+const visibleSocials = socials.filter(social => (
+  String(social.url).match(URL_REGEX) && social.url !== "#" && social.asContact
 ))
 ---
 

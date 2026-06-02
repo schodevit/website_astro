@@ -1,12 +1,16 @@
 ---
 import TechCategory from './tech-category.astro'
 import TechRate from './tech-rate.astro'
-import data from '../data/tech.json'
+
+import techData from '../data/tech.json'
 
 import type { Category, Rate } from '../types'
 
-let categories: Category[]
-categories = data.categories as Category[]
+interface Data {
+  categories: Category[]
+}
+
+const { categories } = techData as Data
 
 const rates: Rate[] = [
   { label: "Expert", level: 3 },

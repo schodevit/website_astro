@@ -1,78 +1,54 @@
 ---
-import SocialItem from './social-item.astro'
-import localData from '../data/home.json'
-import { resolveAssetImage } from '../utils/images'
 import { Image } from 'astro:assets'
+import SocialItem from './social-item.astro'
+import avatarImg from '../assets/avatar.jpg'
 
-interface Social {
-  name: string
-  url: string
-  icon: string
-}
+import homeData from '../data/home.json'
+import socialsData from '../data/socials.json'
 
-interface ProfileData {
+import type { Social } from '../types'
+
+interface Data {
   name: string
-  photoUrl: string
-  intro: string
+  company: string
   introHtml: string
   resumeUrl: string
+}
+
+interface SocialsData {
   socials: Social[]
 }
 
-let data: ProfileData; // data as ProfileData
-data = localData as ProfileData
+const { name, introHtml, resumeUrl } = homeData as Data
+const { socials } = socialsData as SocialsData
 
-// const isApiLive = import.meta.env.PROD; // Auto true in production
-// const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
-
-// if (isApiLive && BASE_URL) {
-//   try {
-//     const response = await fetch(`${BASE_URL}/home`);
-//     if (!response.ok) throw new Error('Network response was not ok');
-//     data = await response.json();
-//   } catch (error) {
-//     console.error("API Fetch failed, falling back to mock data", error);
-//     data = localData as ProfileData;
-//   }
-// } else {
-//   data = localData as ProfileData;
-// }
-
-const { name, photoUrl, introHtml, resumeUrl, socials } = data
-const profileImage = await resolveAssetImage(photoUrl)
+const URL_REGEX = /^(https?:\/\/|mailto:|tel:)/
 
 const visibleSocials = socials.filter(social => (
-  String(social.url).match(/^(https?:\/\/|mailto:|tel:)/) && social.url !== "#"
+  String(social.url).match(URL_REGEX) && social.url !== "#"
 ))
 ---
 
-<section id="home" class="slideGroup flex flex-col items-center justify-center section-container md:pt-30 gap-1 min-h-[80vh] text-center">
+<section id="home" class="slideGroup flex flex-col items-center justify-center section-container md:pt-30 gap-4 min-h-[80vh] text-center">
   <div class="slideUp relative group mb-2">
-    <div class="balloon-float w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-accent overflow-hidden shadow-[0_0_50px_color-mix(in_srgb,var(--color-accent)_33%,transparent)]">
-      <!-- Use Astro Image tag for optimization, fallback to img-->
-      {profileImage ? (
-        <Image
-          src={profileImage}
-          alt={name}
-          class="w-full h-full object-cover scale-110"
-          loading="eager"
-        />
-      ) : (
-        <img
-          src={photoUrl || "/placeholder.jpeg"}
-          alt={name}
-          class="w-full h-full object-cover scale-110"
-          onerror="this.onerror=null;this.src='/placeholder.jpeg';"
-          loading="eager"
-        />
-      )}
+    <div class="balloon-float size-20 md:size-32 rounded-full border-2 border-accent overflow-hidden shadow-[0_0_50px_color-mix(in_srgb,var(--color-accent)_33%,transparent)]">
+      {
+        avatarImg && (
+          <Image
+            src={avatarImg}
+            alt={name}
+            class="w-full h-full object-cover scale-110"
+            loading="eager"
+          />
+        )
+      }
     </div>
 
     <div class="balloon-float absolute -z-10 top-0 left-0 w-full h-full bg-accent rounded-full blur-[80px] opacity-20"/>
   </div>
 
   <div class="slideUp">
-    <p class="font-body font-light text-gray leading-relaxed">
+    <p class="text-gray font-body text-lg leading-relaxed">
       Hello, I'm
     </p>
   </div>
@@ -125,9 +101,6 @@ const visibleSocials = socials.filter(social => (
 
 
 <style is:global>
-  /* profile photo floating animation */
-
-  /* When combined, the animation rule automatically merges these transforms */
   .avatar-container {
     animation: float 5s ease-in-out infinite alternate, wobble 7s ease-in-out infinite alternate;
   }

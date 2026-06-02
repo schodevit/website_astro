@@ -1,0 +1,64 @@
+{
+  "socials": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/schodevio",
+      "icon": "mdi:github",
+      "asContact": true
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/szymonchodzidlo",
+      "icon": "mdi:linkedin",
+      "asContact": true
+    },
+    {
+      "name": "Email",
+      "url": "mailto:schodev.it@gmail.com",
+      "icon": "mdi:email",
+      "asContact": true
+    },
+    {
+      "name": "Leetcode",
+      "url": "#",
+      "icon": "devicon-plain:leetcode",
+      "asContact": false
+    },
+    {
+      "name": "Behance",
+      "url": "#",
+      "icon": "devicon-plain:behance",
+      "asContact": false
+    },
+    {
+      "name": "Whatsapp",
+      "url": "#",
+      "icon": "mdi:whatsapp",
+      "asContact": false
+    },
+    {
+      "name": "Facebook",
+      "url": "#",
+      "icon": "mdi:facebook",
+      "asContact": false
+    },
+    {
+      "name": "Messenger",
+      "url": "#",
+      "icon": "mdi:facebook-messenger",
+      "asContact": false
+    },
+    {
+      "name": "Instagram",
+      "url": "#",
+      "icon": "mdi:instagram",
+      "asContact": false
+    },
+    {
+      "name": "Twitter",
+      "url": "#",
+      "icon": "mdi:twitter",
+      "asContact": false
+    }
+  ]
+}

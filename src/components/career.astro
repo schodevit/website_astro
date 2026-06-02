@@ -1,11 +1,15 @@
 ---
 import CareerCard from './career-card.astro'
-import data from '../data/career.json'
+
+import careerData from '../data/career.json'
 
 import type { Career } from '../types'
 
-let careers: Career[]
-careers = data.careers as Career[]
+interface Data {
+  careers: Career[]
+}
+
+const { careers } = careerData as Data
 
 const dotClasses = (index: number) => [
   "size-4 rounded-full border-4 border-[#0a0a0a]",
@@ -39,7 +43,7 @@ const dotClasses = (index: number) => [
               <div class:list={dotClasses(index)} />
             </div>
 
-            <CareerCard career={career} variant="mobile" />
+            <CareerCard career={career} position="right" />
           </div>
         ))}
       </div>
@@ -57,7 +61,7 @@ const dotClasses = (index: number) => [
             <div class="md:px-6 md:py-0">
               {
                 index % 2 === 0
-                  ? <CareerCard career={career} variant="desktop-left" />
+                  ? <CareerCard career={career} position="left" />
                   : <div class="h-full pointer-events-none" />
               }
             </div>
@@ -66,7 +70,7 @@ const dotClasses = (index: number) => [
             <div class="md:px-6 md:py-0">
               {
                 index % 2 !== 0
-                  ? <CareerCard career={career} variant="desktop-right" />
+                  ? <CareerCard career={career} position="right" />
                   : <div class="h-full pointer-events-none" />
               }
             </div>

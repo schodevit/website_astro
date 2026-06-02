@@ -3,19 +3,19 @@ import type { Career } from '../types'
 
 interface Props {
   career: Career,
-  variant: 'mobile' | 'desktop-left' | 'desktop-right'
+  position: 'left' | 'right'
 }
 
-const { career, variant } = Astro.props
+const { career, position } = Astro.props
 
 const rootClasses = [
   "bg-accent/5 border border-accent/10 p-4 md:p-6 rounded-2xl hover:border-accent/40 transition-all group",
-  { "text-right": variant === 'desktop-left' }
+  { "text-right": position === 'left' }
 ]
 
 const skillsClasses = [
   "flex flex-wrap gap-2",
-  { "justify-end": variant === 'desktop-left' }
+  { "justify-end": position === 'left' }
 ]
 ---
 

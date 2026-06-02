@@ -23,6 +23,7 @@ export interface Skill {
 }
 
 export interface Social {
+  asContact: boolean
   icon: string
   name: string
   url: string

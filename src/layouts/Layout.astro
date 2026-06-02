@@ -1,18 +1,15 @@
 ---
 import BackToTop from '../components/back-to-top.astro'
 import Matrix from "../components/matrix.astro"
+import ThemeToggle from '../components/theme-toggle.astro'
 
-import { SITE_CONFIG } from '../config'
 import '../styles/global.css'
 
 interface Props {
-  title: string
+  siteTitle: string
 }
 
-const { title } = Astro.props
-
-const baseTheme = SITE_CONFIG.baseTheme
-const defaultTheme = `${baseTheme}-dark`
+const { siteTitle } = Astro.props
 ---
 
 <!doctype html>
@@ -21,20 +18,23 @@ const defaultTheme = `${baseTheme}-dark`
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" href="/favicon.ico" />
-    <title>{title}</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
 
-    <!-- Initialize theme -->
-    <script is:inline define:vars={{ baseTheme, defaultTheme }}>
-      const theme = localStorage.getItem('theme') ?? defaultTheme
+    <title>{siteTitle}</title>
 
-      document.documentElement.setAttribute('data-theme', theme)
+    <!-- Initialize Theme -->
+    <script is:inline>
+      const theme = localStorage.getItem('theme') ?? 'dark'
+      document.documentElement.classList.toggle('dark', theme === 'dark')
+
       localStorage.setItem('theme', theme)
     </script>
   </head>
 
   <body class="bg-container relative min-h-screen overflow-x-hidden antialiased">
     <Matrix />
+    <ThemeToggle />
 
     <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
       <slot />

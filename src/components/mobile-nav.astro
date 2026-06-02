@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components'
 import type { NavItem } from '../types'
 import data from '../data/nav.json'
 
@@ -9,14 +10,19 @@ interface Data {
 const { navItems } = data as Data
 ---
 
-<div class="hidden md:flex justify-center w-full">
-  <nav id="nav" class="fixed z-99 w-3/4 mt-6 border-[1.2px]">
-    <div class="container mx-auto flex justify-center items-center p-3">
-      <ul class="flex w-full justify-center gap-12">
+<div class="flex justify-center w-full">
+  <nav id="mobile-nav" class="md:hidden fixed left-1/2 -translate-x-1/2 z-99 bottom-0 border-t-[1.2px] border-transparent rounded-t-2xl">
+    <div class="flex justify-center items-center p-3 bg-background/90 backdrop-blur-sm rounded-t-2xl">
+      <ul class="flex justify-evenly gap-2 w-full">
         {navItems.map(item => (
           <li>
-            <a href={item.href} class="text-accent transition-all">
-              <span class="inline-block">{item.label}</span>
+            <a href={item.href} class="flex flex-col items-center gap-2 text-accent">
+              <Icon
+                name={item.icon}
+                class="size-6 icon text-accent/50"
+              />
+
+              <span class="text-xs">{item.label}</span>
             </a>
           </li>
         ))}
@@ -26,25 +32,23 @@ const { navItems } = data as Data
 </div>
 
 <style>
-#nav {
-  background-color: transparent;
-  border-color: transparent;
-  backdrop-filter: blur(0px);
-  transition: all .4s ease;
-}
-
-#nav.scrolling {
+#mobile-nav {
+  width: 100% !important;
   background-color: color-mix(in srgb, var(--color-background), transparent 75%);
   border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
   backdrop-filter: blur(10px);
-  border-radius: 9999px;
 }
 
-#nav a.active {
+#mobile-nav a.active {
   font-weight: 700;
   color: var(--color-maintext);
   text-shadow: 0 0 10px color-mix(in srgb, var(--color-maintext) 50%, transparent);
   transform: scale(1.1);
+}
+
+#mobile-nav .active .icon {
+  color: var(--color-maintext);
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--color-maintext) 50%, transparent));
 }
 </style>
 
@@ -55,9 +59,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
-const nav = document.getElementById('nav')!
+const mobileNav = document.getElementById('mobile-nav')!
 
-const navItems = gsap.utils.toArray('#nav a') as HTMLElement[]
+const navItems = gsap.utils.toArray('#mobile-nav a') as HTMLElement[]
 const sections = gsap.utils.toArray("section") as HTMLElement[]
 
 /**
@@ -91,18 +95,32 @@ updateActive()
 ScrollTrigger.create({
   start: 1,
 
-  onEnter: () => nav.classList.add('scrolling'),
-  onLeaveBack: () => nav.classList.remove('scrolling')
-});
+  onEnter: () => mobileNav.classList.add('scrolling'),
+  onLeaveBack: () => mobileNav.classList.remove('scrolling')
+})
 
-gsap.to(nav, {
-  width: '640px',
-  scrollTrigger: {
-    trigger: '#home',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true
-  }
+ScrollTrigger.create({
+  start: 0,
+  end: 'max',
+  onUpdate: (self) => {
+    if (self.direction === 1) {
+      // up scroll
+      gsap.to(mobileNav, {
+        y: 100,
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: true,
+      })
+    } else {
+      // down scroll
+      gsap.to(mobileNav, {
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: true,
+      })
+    }
+  },
 })
 
 /**

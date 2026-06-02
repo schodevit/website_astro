@@ -1,16 +1,21 @@
 ---
 import { Icon } from 'astro-icon/components'
-import props from '../data/home.json'
+import data from '../data/home.json'
 
+interface Data {
+  company: string
+}
+
+const { company } = data as Data
 const currentYear = new Date().getFullYear()
 ---
 
 <footer class="section-container">
   <div class="container mx-auto">
-    <div class="border-t border-white/5">
+    <div class="pt-8 border-t border-textrain/10">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-subtext text-sm font-body order-2 md:order-1">
-          {props.name} © {currentYear}
+          {company} © {currentYear}
         </p>
 
         <div class="flex items-center flex-wrap justify-center gap-3 text-subtext text-xs font-body order-1 md:order-2">

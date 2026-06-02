@@ -1,72 +1,7 @@
 {
   "name": "Szymon Chodzidlo",
-  "photoUrl": "avatar.jpg",
-  "intro": "Full-Stack Developer focused on product outcomes, system design, and scalable solutions. I take ownership of features end-to-end with an emphasis on user impact and fast delivery.",
+  "company": "schodev.it",
   "introHtml": "Full-Stack Developer focused on product outcomes, system design, and scalable solutions. I take ownership of features end-to-end with an emphasis on user impact and fast delivery.",
   "siteTitle": "schodev.it Szymon Chodzidlo - Software Development",
-  "resumeUrl": "https://example-files.online-convert.com/document/pdf/example.pdf",
-
-  "_comment": "Add your social links below. Leave the 'url' empty to hide the icon. Set 'showInContact' to true or false to control if it appears in the Contact section.",
-  "socials": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/schodevio",
-      "icon": "mdi:github",
-      "showInContact": true
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://linkedin.com/in/szymonchodzidlo",
-      "icon": "mdi:linkedin",
-      "showInContact": true
-    },
-    {
-      "name": "Email",
-      "url": "mailto:schodevio@gmail.com",
-      "icon": "mdi:email",
-      "showInContact": true
-    },
-    {
-      "name": "Leetcode",
-      "url": "#",
-      "icon": "devicon-plain:leetcode",
-      "showInContact": false
-    },
-    {
-      "name": "Behance",
-      "url": "#",
-      "icon": "devicon-plain:behance",
-      "showInContact": false
-    },
-    {
-      "name": "Whatsapp",
-      "url": "#",
-      "icon": "mdi:whatsapp",
-      "showInContact": false
-    },
-    {
-      "name": "Facebook",
-      "url": "#",
-      "icon": "mdi:facebook",
-      "showInContact": false
-    },
-    {
-      "name": "Messenger",
-      "url": "#",
-      "icon": "mdi:facebook-messenger",
-      "showInContact": false
-    },
-    {
-      "name": "Instagram",
-      "url": "#",
-      "icon": "mdi:instagram",
-      "showInContact": false
-    },
-    {
-      "name": "Twitter",
-      "url": "#",
-      "icon": "mdi:twitter",
-      "showInContact": false
-    }
-  ]
+  "resumeUrl": "/resume.pdf"
 }
