@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Full-Stack Web Development Services",
+  "provider": {
+    "@type": "Person",
+    "name": "Szymon Chodzidło"
+  },
+  "areaServed": "Worldwide",
+  "serviceType": [
+    "Ruby on Rails Development",
+    "Full-Stack Development",
+    "SaaS Application Development",
+    "Startup Consulting"
+  ]
+}

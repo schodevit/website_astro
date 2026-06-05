@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Szymon Chodzidło",
+  "jobTitle": "Senior Full-Stack Developer",
+  "url": "https://schodev.it",
+  "sameAs": [
+    "https://www.linkedin.com/in/szymonchodzidlo",
+    "https://github.com/schodevio"
+  ]
+}

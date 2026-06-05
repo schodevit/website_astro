@@ -3,25 +3,53 @@ import BackToTop from '../components/back-to-top.astro'
 import Matrix from "../components/matrix.astro"
 import ThemeToggle from '../components/theme-toggle.astro'
 
+import homeData from '../data/home.json'
+import personSchema from '../data/schemas/person.json'
+import serviceSchema from '../data/schemas/service.json'
+import websiteSchema from '../data/schemas/website.json'
+
+import type { HomeData } from '../types'
+
 import '../styles/global.css'
 
-interface Props {
-  siteTitle: string
-}
-
-const { siteTitle } = Astro.props
+const { title, description, url, siteName } = homeData as HomeData
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!-- Basic -->
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={url} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <!-- <meta property="og:image" content="https://schodev.it/og-image.jpg" /> -->
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <!-- <meta name="twitter:image" content="https://schodev.it/og-image.jpg" /> -->
+
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
 
-    <title>{siteTitle}</title>
+    <!-- Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
     <!-- Initialize Theme -->
     <script is:inline>

@@ -1,7 +1,10 @@
 {
-  "name": "Szymon Chodzidlo",
-  "company": "schodev.it",
+  "title": "Senior Ruby on Rails Developer | Full-Stack Engineer | Szymon Chodzidło",
+  "description": "Senior Ruby on Rails and Full-Stack Developer with 9+ years of experience building scalable SaaS applications, cloud infrastructure, and high-performance web platforms.",
+  "siteName": "schodev.it",
+  "url": "https://schodev.it/",
+  "fullName": "Szymon Chodzidło",
   "introHtml": "Full-Stack Developer focused on product outcomes, system design, and scalable solutions. I take ownership of features end-to-end with an emphasis on user impact and fast delivery.",
-  "siteTitle": "schodev.it Szymon Chodzidlo - Software Development",
   "resumeUrl": "/resume.pdf"
+
 }

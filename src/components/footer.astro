@@ -1,12 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components'
-import data from '../data/home.json'
+import homeData from '../data/home.json'
 
-interface Data {
-  company: string
-}
+import type { HomeData } from '../types'
 
-const { company } = data as Data
+const { siteName } = homeData as HomeData
 const currentYear = new Date().getFullYear()
 ---
 
@@ -15,7 +13,7 @@ const currentYear = new Date().getFullYear()
     <div class="pt-8 border-t border-textrain/10">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-subtext text-sm font-body order-2 md:order-1">
-          {company} © {currentYear}
+          {siteName} © {currentYear}
         </p>
 
         <div class="flex items-center flex-wrap justify-center gap-3 text-subtext text-xs font-body order-1 md:order-2">

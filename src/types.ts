@@ -34,3 +34,15 @@ export interface NavItem {
   href: string
   icon: string
 }
+
+// ----------
+
+export interface HomeData {
+  title: string
+  description: string
+  siteName: string
+  url: string
+  fullName: string
+  introHtml: string
+  resumeUrl: string
+}

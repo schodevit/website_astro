@@ -6,20 +6,13 @@ import avatarImg from '../assets/avatar.jpg'
 import homeData from '../data/home.json'
 import socialsData from '../data/socials.json'
 
-import type { Social } from '../types'
-
-interface Data {
-  name: string
-  company: string
-  introHtml: string
-  resumeUrl: string
-}
+import type { HomeData, Social } from '../types'
 
 interface SocialsData {
   socials: Social[]
 }
 
-const { name, introHtml, resumeUrl } = homeData as Data
+const { fullName, introHtml, resumeUrl } = homeData as HomeData
 const { socials } = socialsData as SocialsData
 
 const URL_REGEX = /^(https?:\/\/|mailto:|tel:)/
@@ -36,7 +29,7 @@ const visibleSocials = socials.filter(social => (
         avatarImg && (
           <Image
             src={avatarImg}
-            alt={name}
+            alt={`${fullName} - Senior Ruby on Rails Developer`}
             class="w-full h-full object-cover scale-110"
             loading="eager"
           />
@@ -54,7 +47,7 @@ const visibleSocials = socials.filter(social => (
   </div>
 
   <div class="slideUp px-6 sm:px-14 md:px-18 lg:px-40 max-w-360 mx-auto relative z-0">
-    <h1 class="text-5xl md:text-7xl font-heading font-bold text-maintext tracking-tight">{name}</h1>
+    <h1 class="text-5xl md:text-7xl font-heading font-bold text-maintext tracking-tight">{fullName}</h1>
     <br />
 
     <p
