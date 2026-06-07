@@ -10,26 +10,25 @@ interface Data {
 const { navItems } = data as Data
 ---
 
-<div class="flex justify-center w-full">
-  <nav id="mobile-nav" class="md:hidden fixed left-1/2 -translate-x-1/2 z-99 bottom-0 border-t-[1.2px] border-transparent rounded-t-2xl">
-    <div class="flex justify-center items-center p-3 bg-background/90 backdrop-blur-sm rounded-t-2xl">
-      <ul class="flex justify-evenly gap-2 w-full">
-        {navItems.map(item => (
-          <li>
-            <a href={item.href} class="flex flex-col items-center gap-2 text-accent">
-              <Icon
-                name={item.icon}
-                class="size-6 icon text-accent/50"
-              />
 
-              <span class="text-xs">{item.label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </nav>
-</div>
+<nav id="mobile-nav" class="md:hidden fixed left-1/2 -translate-x-1/2 z-99 bottom-0 border-t-[1.2px] border-transparent rounded-t-2xl">
+  <div class="flex justify-center items-center p-3 bg-background/90 backdrop-blur-sm rounded-t-2xl">
+    <ul class="flex justify-evenly gap-2 w-full">
+      {navItems.map(item => (
+        <li>
+          <a href={item.href} class="flex flex-col items-center gap-2 text-accent">
+            <Icon
+              name={item.icon}
+              class="size-6 icon text-accent/50"
+            />
+
+            <span class="text-xs">{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
 
 <style>
 #mobile-nav {
@@ -106,7 +105,7 @@ ScrollTrigger.create({
     if (self.direction === 1) {
       // up scroll
       gsap.to(mobileNav, {
-        y: 100,
+        y: 150,
         duration: 0.3,
         ease: 'power2.out',
         overwrite: true,
