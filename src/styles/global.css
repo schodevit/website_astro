@@ -41,11 +41,35 @@
       text-background;
   }
 
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+  }
+
   body {
     @apply
       font-body
       antialiased
       text-maintext;
+
+    /*Transition for theme switching*/
+    transition: color 0.5s ease-in-out;
+    outline: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Use a fixed pseudo-element for the gradient background instead of
+     background-attachment: fixed, which is broken on iOS Safari —
+     it renders as a separate compositing layer and doesn't repaint
+     when CSS variables change until the user scrolls. */
+  body::before {
+    content: '';
+    position: fixed;
+    z-index: -99;
+    inset: 0;
 
     background: linear-gradient(
       135deg,
@@ -54,13 +78,7 @@
       color-mix(in srgb, var(--color-background), white 16%) 100%
     );
 
-    /*Transition for theme switching*/
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-    background-attachment: fixed;
-    min-height: 100vh;
-    outline: none;
-    padding: 0;
-    margin: 0;
+    transition: background 0.5s ease-in-out;
   }
 }
 
